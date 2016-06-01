@@ -1,0 +1,89 @@
+--creacion de base de datos
+create database ResidenciasProfecionales
+use ResidenciasProfecionales
+--creacion de tablas 
+create table Alumnos
+(
+Matricula_Al varchar(10) primary key not null,
+Nombre varchar (40) not null,
+ApellidoP varchar (40) not null,
+ApellidoM varchar (40) not null,
+Id_Carrera varchar (10) not null,
+Correo varchar (100),
+Telefono varchar(10),
+Sexo varchar(1) not null
+)
+
+create table Revisores
+(
+Id_Revisor varchar(10)primary key not null,
+Nombre varchar (40) not null,
+ApellidoP varchar (40) not null,
+ApellidoM varchar (40) not null,
+Id_Carrera varchar (10) not null,
+Correo varchar (100),
+Telefono varchar (10)
+)
+
+create table Documentos
+(
+Id_Doc varchar (10)primary key not null,
+Matricula_Al varchar(10) not null,
+Solicitud_de_Residencia bit not null,
+Ante_Proyecto bit not null,
+Carta_de_Pesentacion bit not null,
+Dictamen bit not null,
+Asignacion_Asesor_Interno bit not null,
+Asignacion_Asesor_Externo bit not null,
+Seguimiento bit not null,
+Registro_de_Asesoria bit not null,
+Carta_de_Terminacion bit not null,
+Oficio_de_Solicitud_Revisor bit not null,
+Asignacion_de_Revisor1 bit not null,
+Asignacion_de_Revisor2 bit not null,
+Formato_de_Evaluacion bit not null,
+Carta_Agradecimiento bit not null,
+Resumen_Ejecutivo bit not null,
+Informe bit not null,
+Carta_Aceptacion bit not null
+)
+
+create table Proyecto
+(
+Id_Proyecto varchar (10)primary key not null,
+Nombre_Empresa varchar (60)not null,
+Nombre_Proyecto varchar (60)not null,
+Periodo_Residencia int not null,
+Periodo_Realizacion int not null,
+Matricula_Al varchar(10)not null,
+Id_Revisor_Asesor1 varchar (10)not null,
+Id_Revisor_Asesor2 varchar (10)not null,
+Id_Revisor_Asesor3 varchar (10)not null
+)
+
+create table Usuario
+(
+Id_Usuario varchar (10)primary key not null,
+Nombre varchar (40)not null,
+Contraseña varchar (20)not null,
+Id_Carrera varchar (10)not null
+)
+
+create table Carrera
+(
+ Id_Carrera varchar (10)primary key not null,
+ Nombre varchar (40)not null
+ )
+
+ create table AlumnosCalificacion
+(
+Matricula_Al varchar(10)primary key,
+Nombre varchar (40),
+ApellidoP varchar (40),
+ApellidoM varchar (40),
+Id_Carrera varchar (10),
+Correo varchar (100),
+Telefono varchar(10),
+Sexo varchar(1),
+Calificacion varchar(5)
+)
